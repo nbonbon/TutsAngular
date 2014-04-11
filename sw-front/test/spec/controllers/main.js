@@ -1,22 +1,38 @@
 'use strict';
 
 describe('Controller: MainCtrl', function () {
+	
+	var location, scope;
+	
+	// fetch the specific module (or in the case the whole applicaiton)
+	beforeEach(module('swFrontApp')); 
+	
+	// inject needed dependencies (mock them, find them, instantiate)
+	beforeEach(inject(function($controller, $rootScope, $location) {
+		location = $location;
+		scope = $rootScope.$new();
+		$controller('NavigationController', {
+			$scope: scope
+		});
+	}));
 
-  // load the controller's module
-  beforeEach(module('swFrontApp'));
-
-  var MainCtrl,
-    scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-    });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
+	// actual test
+	describe('isActive', function() {
+		it('returns true when paths are the same', function() {
+			location.path('/test');
+			expect(scope.isActive('/test')).toBeTruthy();
+		});
+		it('returns false when paths are different', function() {
+			location.path('/test');
+			expect(scope.isActive('/tset')).toBeFalsy();
+		});
+		it('returns true if it starts with the same word', function() {
+			location.path('/test/1/show');
+			expect(scope.isActive('/test')).toBeTruthy();
+		});
+		it('returns true if it starts with the same word followed by query string', function() {
+			location.path('/test?id=1');
+			expect(scope.isActive('/test')).toBeTruthy();
+		});
+	});
 });
