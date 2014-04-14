@@ -3,7 +3,7 @@
 angular.module('swFrontApp')
 .controller('EdgesController', function ($scope, edges) {
 	var selectedEdge = null;
-	$scope.edge = edges.query();
+	$scope.edges = edges.query();
 	
 	$scope.selectEdge = function(edge) {
 		selectedEdge = (selectedEdge === edge) ? null : edge;

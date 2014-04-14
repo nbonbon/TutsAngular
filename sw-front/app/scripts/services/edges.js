@@ -16,14 +16,25 @@ angular.module('swFrontApp')
 			  ]
 			},
 			{
-			  name: 'Attractive',
-			  description: 'blah...',
+			  name: 'Very Attractive',
+			  description: 'blah blah...',
 			  category: {
 				name: 'Background'
 			  },
 			  requirements: [
-				{ name: null, value: 'Novice'}, 
-				{ name: 'Vigor', value: 'd6'}
+				{ name: 'rank', value: 'Novice'}, 
+				{ name: 'edge', value: 'Attractive'}
+			  ]
+			},
+			{
+			  name: 'Not Very Attractive',
+			  description: 'bleh bleh...',
+			  category: {
+				name: 'Frontground'
+			  },
+			  requirements: [
+				{ name: 'biceps', value: 'Huge'}, 
+				{ name: 'chesticles', value: 'Medium'}
 			  ]
 			}
 		];
