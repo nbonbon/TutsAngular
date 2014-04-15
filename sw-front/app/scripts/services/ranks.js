@@ -1,20 +1,17 @@
 'use strict';
 
 angular.module('swFrontApp')
-.service('categories', function() {
+.service('ranks', function() {
 	this.query = function() {
 		return [
 			{
 				name: 'All'
 			},
 			{
-				name: 'Background'
+				name: 'Novice'
 			},
 			{
-				name: 'Combat'
-			},
-			{
-				name: 'Leadership'
+				name: 'Seasoned'
 			}
 		];
 	};

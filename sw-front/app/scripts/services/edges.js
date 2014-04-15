@@ -11,8 +11,8 @@ angular.module('swFrontApp')
 				name: 'Background'
 			  },
 			  requirements: [
-				{ name: null, value: 'Novice'}, 
-				{ name: 'Vigor', value: 'd6'}
+				{ name: null, value: 'Novice', mode: 'rank'}, 
+				{ name: 'Vigor', value: 'd6', mode: 'trait'}
 			  ]
 			},
 			{
